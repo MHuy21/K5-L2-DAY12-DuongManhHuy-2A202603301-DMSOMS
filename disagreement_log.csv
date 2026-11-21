@@ -1,0 +1,75 @@
+﻿image,label,field,issue,mine,peer,verdict,guideline_rule,action
+D01.png,face,gaze_zone,khác giá trị (IoU=0.79),other,road,mine,4.5,giữ nguyên: hướng nhìn không rõ thuộc vùng nào nên ghi other (GUIDE: không chắc thì other)
+D01.png,face13,left_eye_outer.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D01.png,face13,left_eye_inner.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D01.png,face13,left_eye_upper.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D01.png,face13,left_eye_lower.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D01.png,face13,mouth_left.occluded,khác cờ,1,0,peer,4.6,"miệng D01 thấy được, không bị che: tắt occluded ở mouth_left"
+D01.png,face13,lip_upper.occluded,khác cờ,1,0,peer,4.6,"miệng D01 thấy được, không bị che: tắt occluded ở lip_upper"
+D01.png,face13,lip_lower.occluded,khác cờ,1,0,peer,4.6,"miệng D01 thấy được, không bị che: tắt occluded ở lip_lower"
+D02.png,face13,left_eye_outer.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D02.png,face13,left_eye_inner.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D02.png,face13,left_eye_upper.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D02.png,face13,left_eye_lower.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D02.png,face13,right_eye_outer.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D02.png,face13,right_eye_inner.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D02.png,face13,right_eye_upper.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D02.png,face13,right_eye_lower.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D02.png,face13,nose_tip.occluded,khác cờ,1,0,peer,4.6,mũi D02 không bị vật nào che: tắt occluded ở nose_tip
+D02.png,face13,mouth_left.occluded,khác cờ,1,0,mine,4.6,giữ nguyên: miệng đang ngậm chai nước (GUIDE 4.6 nêu rõ chai nước là vật che)
+D02.png,face13,lip_upper.occluded,khác cờ,1,0,mine,4.6,giữ nguyên: miệng đang ngậm chai nước (GUIDE 4.6 nêu rõ chai nước là vật che)
+D02.png,face13,lip_lower.occluded,khác cờ,1,0,mine,4.6,giữ nguyên: miệng đang ngậm chai nước (GUIDE 4.6 nêu rõ chai nước là vật che)
+D03.png,face,gaze_zone,khác giá trị (IoU=0.55),center,cluster,ambiguous,4.5,"cúi nhìn khóa dây ở hông: center và cluster đều không khớp; đề xuất đổi thành lap (hoặc other nếu không chắc), hỏi coach"
+D03.png,person,seatbelt,khác giá trị (IoU=0.73),unknown,worn_correct,mine,4.7,giữ nguyên: đang thắt dở dây an toàn nên seatbelt=unknown
+D03.png,hand,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.44,,both_wrong,4.4-5,"tay phải đang chỉ: box mình thiếu phần đốt ngón phía trên, box peer cắt mất đầu ngón trỏ; sửa box thành khoảng (598,398,735,530)"
+D03.png,hand,box,chỉ có ở peer (hoặc IoU thấp),,,both_wrong,4.4-5,"tay phải đang chỉ: box mình thiếu phần đốt ngón phía trên, box peer cắt mất đầu ngón trỏ; sửa box thành khoảng (598,398,735,530)"
+D03.png,face13,left_eye_outer.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D03.png,face13,left_eye_inner.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D03.png,face13,left_eye_upper.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D03.png,face13,left_eye_lower.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D03.png,face13,right_eye_outer.occluded,khác cờ,1,0,peer,4.6,"mắt phải bị khuất sau mặt khi cúi, không đoán chắc vị trí: đổi right_eye_outer sang outside=1, occluded=0"
+D03.png,face13,right_eye_outer.outside,khác cờ,0,1,peer,4.6,"mắt phải bị khuất sau mặt khi cúi, không đoán chắc vị trí: đổi right_eye_outer sang outside=1, occluded=0"
+D03.png,face13,right_eye_inner.occluded,khác cờ,1,0,peer,4.6,"mắt phải bị khuất sau mặt khi cúi, không đoán chắc vị trí: đổi right_eye_inner sang outside=1, occluded=0"
+D03.png,face13,right_eye_inner.outside,khác cờ,0,1,peer,4.6,"mắt phải bị khuất sau mặt khi cúi, không đoán chắc vị trí: đổi right_eye_inner sang outside=1, occluded=0"
+D03.png,face13,right_eye_upper.occluded,khác cờ,1,0,peer,4.6,"mắt phải bị khuất sau mặt khi cúi, không đoán chắc vị trí: đổi right_eye_upper sang outside=1, occluded=0"
+D03.png,face13,right_eye_upper.outside,khác cờ,0,1,peer,4.6,"mắt phải bị khuất sau mặt khi cúi, không đoán chắc vị trí: đổi right_eye_upper sang outside=1, occluded=0"
+D03.png,face13,right_eye_lower.occluded,khác cờ,1,0,peer,4.6,"mắt phải bị khuất sau mặt khi cúi, không đoán chắc vị trí: đổi right_eye_lower sang outside=1, occluded=0"
+D03.png,face13,right_eye_lower.outside,khác cờ,0,1,peer,4.6,"mắt phải bị khuất sau mặt khi cúi, không đoán chắc vị trí: đổi right_eye_lower sang outside=1, occluded=0"
+D03.png,face13,mouth_left.occluded,khác cờ,1,0,mine,4.6,"giữ nguyên: cúi đầu nhìn khóa dây, miệng khuất"
+D03.png,face13,lip_upper.occluded,khác cờ,1,0,mine,4.6,"giữ nguyên: cúi đầu nhìn khóa dây, miệng khuất"
+D03.png,face13,lip_lower.occluded,khác cờ,1,0,mine,4.6,"giữ nguyên: cúi đầu nhìn khóa dây, miệng khuất"
+D04.png,face,eye_left,khác giá trị (IoU=0.86),open,unknown,mine,4.5,"giữ nguyên: đã kiểm trên CVAT, thấy khe mắt trái mở"
+D04.png,hand,box,chỉ có ở mine (hoặc IoU thấp),IoU=0.34,,both_wrong,4.4-5; 4.7,"tay trái trên đầu gối: box của mình lệch sang cẳng tay, box của peer đúng chỗ nhưng ghi side=right (peer ERROR 2 tay cùng side); sửa box thành khoảng (208,660,392,830), side=left"
+D04.png,hand,box,chỉ có ở peer (hoặc IoU thấp),,,both_wrong,4.4-5; 4.7,"tay trái trên đầu gối: box của mình lệch sang cẳng tay, box của peer đúng chỗ nhưng ghi side=right (peer ERROR 2 tay cùng side); sửa box thành khoảng (208,660,392,830), side=left"
+D04.png,face13,left_eye_inner.occluded,khác cờ,0,1,mine,4.6,giữ nguyên: eye_left=open (thấy mắt) thì điểm không bị che
+D04.png,face13,right_eye_inner.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D04.png,face13,right_eye_upper.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D04.png,face13,right_eye_lower.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D04.png,face13,mouth_left.occluded,khác cờ,1,0,peer,4.6,"miệng D04 thấy được, không bị che: tắt occluded ở mouth_left"
+D04.png,face13,lip_upper.occluded,khác cờ,1,0,peer,4.6,"miệng D04 thấy được, không bị che: tắt occluded ở lip_upper"
+D04.png,face13,lip_lower.occluded,khác cờ,1,0,peer,4.6,"miệng D04 thấy được, không bị che: tắt occluded ở lip_lower"
+D05.png,face,gaze_zone,khác giá trị (IoU=0.82),other,cluster,mine,4.5,giữ nguyên: hướng nhìn không rõ thuộc vùng nào nên ghi other (GUIDE: không chắc thì other)
+D05.png,face13,left_eye_outer.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D05.png,face13,left_eye_inner.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D05.png,face13,left_eye_upper.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D05.png,face13,left_eye_lower.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D05.png,face13,right_eye_outer.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D05.png,face13,right_eye_inner.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D05.png,face13,right_eye_upper.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D05.png,face13,right_eye_lower.occluded,khác cờ,1,0,mine,4.6; 4.5,giữ nguyên: mắt không thấy (eye=unknown) nên điểm mắt phải có cờ occluded; peer thiếu cờ (cabin_check WARN)
+D06.png,hand,box,chỉ có ở peer (hoặc IoU thấp),,,peer,4.2; 4.7,"bàn tay trái sát camera bị cháy sáng nhưng vẫn thấy hình ngón tay: thêm hand (451,255,718,597) whose=driver side=left on_wheel=no"
+S02_ir.png,face,eye_left,khác giá trị (IoU=0.86),open,unknown,mine,4.4-1; 4.5,"giữ nguyên: mặt người lớn S02 nhìn rõ, mắt mở, không đoán"
+S02_ir.png,face,eye_right,khác giá trị (IoU=0.86),open,unknown,mine,4.4-1; 4.5,"giữ nguyên: mặt người lớn S02 nhìn rõ, mắt mở, không đoán"
+S02_ir.png,face,glasses,khác giá trị (IoU=0.86),none,unknown,mine,4.5,giữ nguyên: thấy rõ không đeo kính (none); unknown chỉ dùng khi không nhìn rõ vùng mắt
+S02_rgb.png,frame_meta,light,khác giá trị,unknown,day,mine,3 (SVIRO),giữ nguyên: ảnh SVIRO là ảnh dựng nên light=unknown (peer bị cabin_check WARN)
+S02_rgb.png,face,eye_left,khác giá trị (IoU=0.82),open,unknown,mine,4.4-1; 4.5,"giữ nguyên: mặt người lớn S02 nhìn rõ, mắt mở, không đoán"
+S02_rgb.png,face,eye_right,khác giá trị (IoU=0.82),open,unknown,mine,4.4-1; 4.5,"giữ nguyên: mặt người lớn S02 nhìn rõ, mắt mở, không đoán"
+S02_rgb.png,face,glasses,khác giá trị (IoU=0.82),none,unknown,mine,4.5,giữ nguyên: thấy rõ không đeo kính (none); unknown chỉ dùng khi không nhìn rõ vùng mắt
+S03_ir.png,object,type,khác giá trị (IoU=0.96),other,bag,ambiguous,4.8,"vật mềm phẳng có dây đeo: có thể là túi (bag); guideline: không chắc thì other. Hỏi coach, tạm giữ other"
+S03_rgb.png,frame_meta,light,khác giá trị,unknown,day,mine,3 (SVIRO),giữ nguyên: ảnh SVIRO là ảnh dựng nên light=unknown (peer bị cabin_check WARN)
+S03_rgb.png,object,type,khác giá trị (IoU=0.95),other,bag,ambiguous,4.8,"vật mềm phẳng có dây đeo: có thể là túi (bag); guideline: không chắc thì other. Hỏi coach, tạm giữ other"
+S04_ir.png,face,box,chỉ có ở peer (hoặc IoU thấp),,,mine,4.5,"giữ nguyên: tóc che gần hết mặt, không thấy mắt và mũi nên không vẽ face"
+S04_rgb.png,frame_meta,light,khác giá trị,unknown,day,mine,3 (SVIRO),giữ nguyên: ảnh SVIRO là ảnh dựng nên light=unknown (peer bị cabin_check WARN)
+S04_rgb.png,face,box,chỉ có ở peer (hoặc IoU thấp),,,mine,4.5,"giữ nguyên: tóc che gần hết mặt, không thấy mắt và mũi nên không vẽ face"
+S06_rgb.png,frame_meta,light,khác giá trị,unknown,night,mine,3 (SVIRO),giữ nguyên: ảnh SVIRO là ảnh dựng nên light=unknown (peer bị cabin_check WARN)
+S07_rgb.png,frame_meta,modality,khác giá trị,rgb,ir,mine,4.3-1,giữ nguyên: ảnh _rgb thì modality=rgb
