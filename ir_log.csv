@@ -1,3 +1,5 @@
 frame_id,source,phenomenon,affected_field,effect_on_label
-S01_ir,IR_sim,"(ví dụ) không thấy dây an toàn trên áo tối",seatbelt,"giữ unknown; RGB cùng cảnh cũng không thấy"
-D03,real_IR,"(ví dụ) đốm phản xạ LED trên tròng kính che mắt phải",right_eye_state,"ghi unknown, không ghi closed"
+S06_ir,IR_sim,"túi ở ghế giữa màu đỏ trên RGB, trên IR-sim chỉ còn khối xám sáng; mất hoàn toàn thông tin màu",object.type,"gán type=bag theo hình dạng (khóa kéo, quai, đáy túi), không dựa vào màu"
+S06_ir,IR_sim,"ghế rear_left trên S06_rgb gần như đen (độ sáng trung bình ~1/255), còn trên IR-sim thấy rõ nôi em bé, hoa văn và tay cầm",infant_seat.facing,"xác định box và facing=rear trên ảnh IR; trên ảnh RGB chỉ giữ nhãn nếu chỉnh Image settings vẫn thấy được, không suy từ ảnh IR (GUIDE 4.4-1)"
+S08_ir,IR_sim,"hai ghế trẻ em cạnh nhau: RGB phân biệt bằng màu (đỏ ở rear_left, xanh ở rear_middle), IR-sim cả hai cùng xám có hoa văn nên mép tiếp giáp khó tách",child_seat.seat,"tách hai box theo đường viền và tựa đầu của từng ghế, gán seat theo vị trí ghế xe chứ không theo màu"
+S04_ir,IR_sim,"vùng ngực người lớn ở ghế giữa trên RGB tối (độ sáng trung bình ~30/255), trên IR-sim thấy rõ vân áo len và không có dải dây chéo qua vai",seatbelt,"ghi not_worn vì thấy rõ không có dây; trên RGB phải chỉnh sáng để kiểm, nếu vẫn không thấy thì ghi unknown"
