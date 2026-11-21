@@ -1,39 +1,39 @@
-# Danh sách lớp v0 — <Họ tên> · <Gxx>
+# Danh sách lớp v0 — Dương Mạnh Huy · G01
 
 Viết tiếp từ slide 54 bài giảng. Mỗi lớp trả lời: **model cần nhận ra cái này để làm gì?**
-Xóa 2 dòng ví dụ trước khi nộp.
 
-## DMS (ít nhất 6 lớp)
+## DMS (8 lớp)
 
-| # | Lớp / thuộc tính | Giá trị | Để làm gì (chức năng DMS) | Nhìn thấy được trên IR? |
-|---|---|---|---|---|
-| ví dụ | eye_state | open / closed / unknown | Phát hiện buồn ngủ (mắt nhắm lâu) | Có, trừ khi kính phản xạ |
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
-| 6 | | | | |
+| #   | Lớp / thuộc tính                             | Giá trị                                                                | Để làm gì (chức năng DMS)                                                                                     | Nhìn thấy được trên IR?                                                                                                             |
+| --- | -------------------------------------------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | `eye_left`, `eye_right` (gán riêng từng mắt) | open / closed / unknown                                                | Đo tỉ lệ thời gian mắt nhắm (PERCLOS) để cảnh báo buồn ngủ; gán riêng từng mắt vì một mắt có thể bị che       | Có khi không đeo kính (G01 D06 thấy rõ mí khép). Đốm phản xạ LED trên tròng kính có thể che hẳn mắt (D02), lúc đó phải là `unknown` |
+| 2   | `gaze_zone`                                  | road / mirror_l / mirror_r / mirror_c / cluster / center / lap / other | Phát hiện mất tập trung: mắt rời đường quá lâu (ví dụ nhìn `lap` hay `center` liên tục vài giây) thì cảnh báo | Một phần: hướng đầu thấy rõ, hướng mắt sau kính khó thấy (D04, D05). Ảnh xoay 90° nên phải đổi trục khi suy hướng                   |
+| 3   | `hand` + `on_wheel` (kèm `side`, `whose`)    | yes / no / unknown                                                     | Phát hiện bỏ tay khỏi vô lăng; với xe tự lái mức 2–3, biết tài xế có sẵn sàng nhận lại quyền lái không        | Có, nhưng tay đưa sát camera bị cháy sáng, mất chi tiết ngón (D06)                                                                  |
+| 4   | `phone` + `state`                            | held / mounted / lap                                                   | Phát hiện nghe gọi hoặc nhắn tin khi lái (cầm máy áp tai như D05)                                             | Có theo hình dạng (cạnh, góc). Không dựa vào màn hình sáng; dễ nhầm với chai nước hay vật nhỏ trên tay (D02)                        |
+| 5   | `glasses`                                    | none / clear / sun / unknown                                           | Cho model biết độ tin cậy của trạng thái mắt; kính râm hay kính có đốm phản xạ thì giảm trọng số `eye_*`      | Gọng thấy rõ. Kính râm có thể trông trong suốt trên NIR nên khó tách `clear` với `sun`; kính cầm trên tay vẫn là `none` (D06)       |
+| 6   | `seatbelt` của tài xế                        | worn_correct / worn_incorrect / not_worn / unknown                     | Nhắc thắt dây, phát hiện đeo sai (dây dưới nách, sau lưng)                                                    | Có khi dây tối nằm trên áo sáng (D04, D05). Đang thắt dở hoặc áo khoác che thì `unknown` (D01, D03)                                 |
+| 7   | `face13` (13 điểm mặt)                       | tọa độ + cờ occluded / outside                                         | Ước lượng tư thế đầu (gật gù, quay đầu) và miệng mở (ngáp, nói chuyện)                                        | Có, nhưng mặt xa đèn LED thì tối (D01) và điểm mắt sau tròng kính thường phải đánh `occluded`                                       |
+| 8   | `frame_meta.camera_blocked`                  | yes / no                                                               | Phát hiện camera bị che hoặc lóa để báo hệ thống DMS tạm không tin được                                       | Có (ảnh tối đen hoặc trắng bão hòa)                                                                                                 |
 
-## OMS (ít nhất 6 lớp)
+## OMS (7 lớp)
 
-| # | Lớp / thuộc tính | Giá trị | Để làm gì (chức năng OMS) | Nhìn thấy được trên IR? |
-|---|---|---|---|---|
-| ví dụ | infant_seat | có / không, theo ghế | Nhắc quên trẻ trong xe; tắt túi khí ghế trước | Có (hình dạng) |
-| 1 | | | | |
-| 2 | | | | |
-| 3 | | | | |
-| 4 | | | | |
-| 5 | | | | |
-| 6 | | | | |
+| #   | Lớp / thuộc tính                                        | Giá trị                                                         | Để làm gì (chức năng OMS)                                                                                       | Nhìn thấy được trên IR?                                                                                                  |
+| --- | ------------------------------------------------------- | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| 1   | `person` + `seat`                                       | driver / front_passenger / rear_left / rear_middle / rear_right | Đếm người theo từng ghế để nhắc thắt dây đúng ghế và quyết định bung túi khí ghế nào                            | Có theo hình dạng; gọi ghế theo xe (camera nhìn về sau nên trái ảnh = `rear_right`)                                      |
+| 2   | `seatbelt` hành khách                                   | worn_correct / worn_incorrect / not_worn / unknown              | Nhắc thắt dây cho ghế sau (yêu cầu của nhiều chương trình đánh giá an toàn)                                     | Có khi áo sáng (S04 thấy rõ không có dây trên IR-sim dù RGB tối). SVIRO không có ai thắt dây nên không dạy được `worn_*` |
+| 3   | `child_seat` + `occupied`                               | no / unknown                                                    | Biết ghế trẻ em đang đặt ở ghế nào để nhắc nhớ trẻ và điều chỉnh túi khí                                        | Có theo hình dạng và hoa văn; mất màu nên hai ghế cạnh nhau khó tách mép (S08)                                           |
+| 4   | `infant_seat` + `facing`                                | rear / front                                                    | Ghế em bé quay ngược chiều ở ghế phụ trước thì phải tắt túi khí                                                 | Có. RGB quá tối vẫn thấy rõ trên IR-sim (S06 `rear_left`); hướng nôi phải suy từ vị trí đầu nôi                          |
+| 5   | `object` + `type`                                       | bag / box / cup / other                                         | Nhắc quên đồ khi tài xế rời xe; tránh nhận nhầm vật thành người                                                 | Có theo hình dạng; mất màu (túi đỏ S06 chỉ còn khối xám), phải nhận bằng khóa kéo, quai                                  |
+| 6   | `face` (OMS, chỉ box)                                   | có box / không vẽ                                               | Phân biệt người thật với ma-nơ-canh hay vật; biết người đang quay mặt về đâu                                    | Có, nhưng tóc che gần hết mặt thì không vẽ (S04)                                                                         |
+| 7   | **Đề xuất v1.x:** `child` + `child_seat.occupied = yes` | có / không, theo ghế                                            | Phát hiện trẻ bị bỏ quên trong xe (child presence detection), chức năng OMS quan trọng nhất mà v1.0 chưa có lớp | Có (G01 S02, S03, S05, S07, S08 đều thấy rõ trẻ trên IR-sim)                                                             |
 
 ## 2 câu hỏi leo thang
 
 Câu hỏi bạn muốn hỏi người viết guideline (hoặc khách hàng) vì guideline v1.0 chưa trả lời. Mỗi câu kèm **tên khung** làm ví dụ.
 
-1. Câu hỏi: …
-   Khung ví dụ: …
-   Bạn tạm gán thế nào và vì sao: …
-2. Câu hỏi: …
-   Khung ví dụ: …
-   Bạn tạm gán thế nào và vì sao: …
+1. Câu hỏi: Ghế trẻ em hoặc ghế em bé **đang có trẻ ngồi** thì gán thế nào? Guideline v1.0 ghi "bộ ảnh không có trẻ em", `child_seat` chỉ dành cho ghế trống và `occupied` không có `yes`, nên không có nhãn nào khớp. Nếu tiếp tục không gán thì model OMS không học được ca nhắc quên trẻ trong xe.
+   Khung ví dụ: G01 S05 (hai ghế trẻ em hai bên đều có trẻ), G01 S07 (em bé trong nôi ở ghế giữa).
+   Bạn tạm gán thế nào và vì sao: theo hướng dẫn của coach, không gán trẻ em và không gán cái ghế đó; người lớn và đồ vật trong cùng ảnh vẫn gán bình thường. Đề xuất cho v1.x: thêm label `child` và giá trị `occupied = yes`.
+2. Câu hỏi: Tài xế **cúi nhìn xuống thân mình** (khóa dây an toàn ở hông, cần số, túi áo) thì `gaze_zone` là vùng nào? Danh sách vùng chỉ có `lap` (đùi), `center` (màn hình giữa) và `cluster` (đồng hồ), không có vùng cho thân hay hông.
+   Khung ví dụ: G01 D03 (đang cài khóa dây an toàn, mắt nhìn xuống khóa ở hông).
+   Bạn tạm gán thế nào và vì sao: mình tạm gán `center`, bạn review (Phạm Minh Quân) gán `cluster`, hai bạn không thống nhất nên ghi `ambiguous` trong `disagreement_log.csv` và hỏi coach. Đề xuất cho v1.x: mở rộng `lap` thành "nhìn xuống thân hoặc đùi", hoặc quy định rõ chọn `other` khi không thuộc vùng nào.
